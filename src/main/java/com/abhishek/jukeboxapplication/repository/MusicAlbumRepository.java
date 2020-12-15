@@ -10,5 +10,5 @@ import com.abhishek.jukeboxapplication.model.Musician;
 
 @Repository
 public interface MusicAlbumRepository extends JpaRepository<MusicAlbum, Long> {
-	List<MusicAlbum> findAllByMusiciansOrderByPriceDesc(Musician musician);
+	List<MusicAlbum> findAllByMusiciansOrderByPrice(Musician musician);
 }

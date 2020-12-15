@@ -83,7 +83,7 @@ public class JukeBoxServiceImpl implements JukeBoxService {
 	@Override
 	public List<MusicAlbum> getMusicAlbumsByMusician(Long musicianId) {
 
-		return musicAlbumRepository.findAllByMusiciansOrderByPriceDesc(new Musician(musicianId, null, null, null));
+		return musicAlbumRepository.findAllByMusiciansOrderByPrice(new Musician(musicianId, null, null, null));
 	}
 
 	@Override

@@ -41,7 +41,7 @@ public class JukeBoxServiceImpl implements JukeBoxService {
 		if (!CollectionUtils.isEmpty(musicians)) {
 			musicAlbum.setMusicians(musicians.stream().map(m -> {
 				if (m.getId() != null) {
-					m = musicianRepository.getOne(m.getId());
+					m = musicianRepository.findById(m.getId()).get();
 				}
 				return m;
 			}).collect(Collectors.toSet()));
@@ -83,7 +83,7 @@ public class JukeBoxServiceImpl implements JukeBoxService {
 	@Override
 	public List<MusicAlbum> getMusicAlbumsByMusician(Long musicianId) {
 
-		return musicAlbumRepository.findAllByMusiciansOrderByPrice(new Musician(musicianId, null, null, null));
+		return musicAlbumRepository.findAllByMusiciansOrderByPriceDesc(new Musician(musicianId, null, null, null));
 	}
 
 	@Override
